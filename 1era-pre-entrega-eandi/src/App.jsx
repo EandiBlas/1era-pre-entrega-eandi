@@ -1,14 +1,20 @@
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
-import ContentProducts from './Components/ContentProducts/ContentProducts';
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <>
-      <NavBar />
-      <ItemListContainer greetings="Bienvenidos a Shared Company"/>
-      {/* <ContentProducts /> */}
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={ <ItemListContainer/> } />
+          <Route path='/Category/:idCategory' element={ <ItemListContainer/> } />
+          <Route path='/item/:idItem' element={ <ItemDetailContainer/> } />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
