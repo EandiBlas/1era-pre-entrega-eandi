@@ -1,13 +1,8 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({initial, stock, addToCart}) => {
 
     const [count, setCount] = useState(initial);
-
-
-    const addToCart = () => {
-        console.log(`Agregaste correctamente ${count} items`);
-    }
 
     const increaseCount = () => {
         if(count < stock){
@@ -22,16 +17,14 @@ const ItemCount = ({stock, initial}) => {
     }
 
   return (
-    <div>
-        <button onClick={decreaseCount}> - </button>
-        <p> {count} </p>
-        <button onClick={increaseCount}> + </button>
-        <br />
-        <br />
-        <button onClick={addToCart}> Agregar al carrito</button>
-        <br />
-        <br />
-    </div>
+    <>
+        <div>
+            <button onClick={decreaseCount}> - </button>
+            <p> {count} </p>
+            <button onClick={increaseCount}> + </button>
+            <button onClick={()=>addToCart(count)}> Add to Cart </button>
+        </div>
+    </>
   )
 }
 
