@@ -1,26 +1,31 @@
 import { useState, useEffect } from 'react'
 import ItemList from '../ItemList/ItemList'
-import { getProducts, getProductByCategory } from '../../asyncmock'
 import { useParams } from 'react-router-dom'
+import { collection, getDocs, where, query } from 'firebase/firestore';
+import { db } from '../../services/config'
 
-const ItemListContainer = ({ greetings }) => {
+const ItemListContainer = () => {
 
   const [products, setProducts] = useState([]);
 
   const { idCategory } = useParams();
 
   useEffect(() => {
+    const myProducts = idCategory ? query(collection(db, "products"), where("idCat", "==", idCategory)) : collection(db, "products");
 
-    const functionProducts = idCategory ? getProductByCategory : getProducts;
-
-    functionProducts(idCategory)
-      .then(response => setProducts(response))
-      .catch(error => console.error(error))
+    getDocs(myProducts)
+      .then(res => {
+        const newProducts = res.docs.map(doc => {
+          const data = doc.data()
+          return { id: doc.id, ...data }
+        })
+        setProducts(newProducts);
+      })
+      .catch(error => console.log(error))
   }, [idCategory])
 
   return (
     <>
-      <h2>{greetings}</h2>
       <ItemList products={products} />
     </>
   )

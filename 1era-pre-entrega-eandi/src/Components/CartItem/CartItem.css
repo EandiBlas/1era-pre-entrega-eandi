@@ -1,4 +1,4 @@
-.cartProduct{
+.cartItems{
     background-color: aliceblue;
     border-radius: 10px;
     width: 18rem;
@@ -9,18 +9,18 @@
     align-items: center;
 }
 
-.cartProduct > h3 {
+.myCartImg{
+    object-fit: contain;
+    margin: 0;
+}
+
+.cartItems > h4 {
     font-family: 'AvenirBlack';
     font-size: 1.2rem;
     margin: 0.2rem;
 }
 
-.cartProduct > p {
+.cartItems > p {
     font-size: 1.1rem;
     margin: 0.2rem;
-}
-
-.imgProduct{
-    width: 150px;
-    object-fit: contain;
 }

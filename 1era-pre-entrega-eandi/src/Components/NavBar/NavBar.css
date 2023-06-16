@@ -1,23 +1,48 @@
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: antiquewhite;
+.header{
+    background: linear-gradient(to top, rgb(148, 148, 148), rgb(17, 24, 39)); 
+    padding-top: 6rem;
     border-bottom: 2px solid #6a6a6a;
 }
 
-li {
-    font-size: 1.5rem;
-    display: inline-block;
-    margin: 2rem;
+@media (min-width:768px){
+    .contentHeader{
+        display: flex;
+        justify-content:space-evenly;
+    }
 }
 
-.MyTitulo {
-    margin: 1rem;
-    color: black;
-    text-decoration: none;
+
+.contentNavbar{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+@media (min-width:768px){
+    .contentNavbar{
+        flex-direction: row;
+    }
 }
 
 .myli{
+    width: 80px;
     text-decoration: none;
+    color: #ffffffc5;
+    background: linear-gradient(to top, rgb(17, 24, 39), rgb(17, 24, 39)); 
+    padding: 0.8rem;
+    text-align: center;
+}
+
+.myli:hover{
+    filter: opacity(.5);
+}
+
+.logoSc{
+    width: 8rem;
+    padding-left: 2rem;
+}
+
+.logoSc:hover {
+    filter: opacity(.5);
 }

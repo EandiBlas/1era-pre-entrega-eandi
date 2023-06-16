@@ -13,7 +13,7 @@ const ItemDetail = ({ name, price, desc, id, img, stock }) => {
 
   const handlerAmount = (amount) => {
     setAddAmount(amount);
-    const item = { id, name, price }
+    const item = { id, name, price, img }
     addProduct(item, amount);
   }
 
@@ -23,9 +23,10 @@ const ItemDetail = ({ name, price, desc, id, img, stock }) => {
       <h3>Description: {desc} </h3>
       <h3>Price: {price} </h3>
       <h3>Product ID: {id} </h3>
+      <h3>Stock: {stock} </h3>
       <img src={img} alt={name} />
       {
-        addAmount > 0 ? (<Link to={"/cart"}> Finalizar Compra </Link>) : <ItemCount initial={1} stock={stock} addToCart={handlerAmount} />
+        addAmount > 0 ? (<Link to="/cart" className="myButton"> Finalizar Compra </Link>) : <ItemCount initial={1} stock={stock} addToCart={handlerAmount} />
       }
     </div>
   )

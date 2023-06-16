@@ -1,4 +1,11 @@
 .imgCarrito {
-    width: 2rem;
-    margin: 0.2rem;
+    width: 3rem;
+    text-decoration: none;
+    margin: auto;
+}
+
+.indicatorNum{
+    font-size: 1.6rem;
+    color: #ffffff;
+    padding-right: 1rem;
 }
